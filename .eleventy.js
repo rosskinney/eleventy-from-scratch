@@ -1,3 +1,5 @@
+const rssPlugin = require('@11ty/eleventy-plugin-rss');
+
 // Filters
 const dateFilter = require('./src/filters/date-filter.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
@@ -10,6 +12,9 @@ config.addFilter('w3DateFilter', w3DateFilter);
 
   // Set directories to pass through to the dist folder
 config.addPassthroughCopy('./src/images/');
+
+// Plugins
+config.addPlugin(rssPlugin);
 
 // Returns work items, sorted by display order
 config.addCollection('work', collection => {
